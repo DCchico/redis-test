@@ -1,0 +1,510 @@
+root@node-2:/users/DCchico# ./benchmark_redis_get_latency.sh
+Inserting data...
+OK
+OK
+OK
+OK
+Benchmarking GET operations...
+====== key1 ======
+  1000 requests completed in 0.05 seconds
+  1 parallel clients
+  1 bytes payload
+  keep alive: 1
+  host configuration "save": 900 1 300 10 60 10000
+  host configuration "appendonly": no
+  multi-thread: no
+
+0.10% <= 0.043 milliseconds
+0.30% <= 0.044 milliseconds
+0.70% <= 0.045 milliseconds
+33.40% <= 0.046 milliseconds
+78.90% <= 0.047 milliseconds
+93.40% <= 0.048 milliseconds
+96.50% <= 0.049 milliseconds
+96.80% <= 0.050 milliseconds
+97.50% <= 0.051 milliseconds
+97.60% <= 0.052 milliseconds
+97.80% <= 0.053 milliseconds
+98.20% <= 0.055 milliseconds
+98.40% <= 0.056 milliseconds
+98.60% <= 0.057 milliseconds
+98.70% <= 0.058 milliseconds
+99.00% <= 0.059 milliseconds
+99.10% <= 0.063 milliseconds
+99.20% <= 0.064 milliseconds
+99.30% <= 0.066 milliseconds
+99.50% <= 0.068 milliseconds
+99.70% <= 0.094 milliseconds
+99.80% <= 0.141 milliseconds
+99.90% <= 0.174 milliseconds
+100.00% <= 0.231 milliseconds
+18181.82 requests per second
+
+====== key2 ======
+  1000 requests completed in 0.06 seconds
+  1 parallel clients
+  1024 bytes payload
+  keep alive: 1
+  host configuration "save": 900 1 300 10 60 10000
+  host configuration "appendonly": no
+  multi-thread: no
+
+0.10% <= 0.044 milliseconds
+0.60% <= 0.045 milliseconds
+1.20% <= 0.046 milliseconds
+12.30% <= 0.047 milliseconds
+38.90% <= 0.048 milliseconds
+59.40% <= 0.049 milliseconds
+63.40% <= 0.050 milliseconds
+64.50% <= 0.051 milliseconds
+65.10% <= 0.053 milliseconds
+65.30% <= 0.054 milliseconds
+65.60% <= 0.055 milliseconds
+67.70% <= 0.056 milliseconds
+69.40% <= 0.057 milliseconds
+74.90% <= 0.058 milliseconds
+92.80% <= 0.059 milliseconds
+96.60% <= 0.060 milliseconds
+97.60% <= 0.061 milliseconds
+98.20% <= 0.062 milliseconds
+98.50% <= 0.063 milliseconds
+98.60% <= 0.064 milliseconds
+99.10% <= 0.066 milliseconds
+99.20% <= 0.067 milliseconds
+99.30% <= 0.069 milliseconds
+99.40% <= 0.081 milliseconds
+99.50% <= 0.116 milliseconds
+99.60% <= 0.119 milliseconds
+99.70% <= 0.126 milliseconds
+99.80% <= 0.164 milliseconds
+99.90% <= 0.172 milliseconds
+100.00% <= 0.459 milliseconds
+15625.00 requests per second
+
+====== key3 ======
+  1000 requests completed in 0.06 seconds
+  1 parallel clients
+  1048576 bytes payload
+  keep alive: 1
+  host configuration "save": 900 1 300 10 60 10000
+  host configuration "appendonly": no
+  multi-thread: no
+
+0.10% <= 0.040 milliseconds
+0.20% <= 0.045 milliseconds
+0.40% <= 0.046 milliseconds
+2.00% <= 0.047 milliseconds
+54.50% <= 0.048 milliseconds
+88.50% <= 0.049 milliseconds
+93.20% <= 0.050 milliseconds
+95.10% <= 0.051 milliseconds
+95.50% <= 0.052 milliseconds
+96.10% <= 0.053 milliseconds
+96.80% <= 0.054 milliseconds
+97.30% <= 0.055 milliseconds
+97.80% <= 0.056 milliseconds
+98.40% <= 0.057 milliseconds
+98.60% <= 0.058 milliseconds
+98.80% <= 0.059 milliseconds
+99.00% <= 0.060 milliseconds
+99.20% <= 0.062 milliseconds
+99.30% <= 0.066 milliseconds
+99.50% <= 0.068 milliseconds
+99.60% <= 0.074 milliseconds
+99.70% <= 0.136 milliseconds
+99.80% <= 0.142 milliseconds
+99.90% <= 0.168 milliseconds
+100.00% <= 0.197 milliseconds
+17241.38 requests per second
+
+====== key4 ======
+  1000 requests completed in 0.08 seconds
+  1 parallel clients
+  10485760 bytes payload
+  keep alive: 1
+  host configuration "save": 900 1 300 10 60 10000
+  host configuration "appendonly": no
+  multi-thread: no
+
+0.10% <= 0.055 milliseconds
+0.30% <= 0.056 milliseconds
+14.60% <= 0.057 milliseconds
+31.60% <= 0.058 milliseconds
+52.30% <= 0.059 milliseconds
+84.10% <= 0.060 milliseconds
+94.30% <= 0.061 milliseconds
+96.20% <= 0.062 milliseconds
+96.40% <= 0.063 milliseconds
+97.00% <= 0.064 milliseconds
+97.30% <= 0.065 milliseconds
+97.40% <= 0.066 milliseconds
+97.70% <= 0.067 milliseconds
+98.10% <= 0.068 milliseconds
+98.20% <= 0.069 milliseconds
+98.50% <= 0.072 milliseconds
+98.80% <= 0.073 milliseconds
+99.00% <= 0.078 milliseconds
+99.10% <= 0.080 milliseconds
+99.20% <= 0.084 milliseconds
+99.30% <= 0.085 milliseconds
+99.40% <= 0.087 milliseconds
+99.50% <= 0.095 milliseconds
+99.60% <= 0.118 milliseconds
+99.70% <= 0.133 milliseconds
+99.80% <= 0.138 milliseconds
+99.90% <= 0.151 milliseconds
+100.00% <= 0.234 milliseconds
+12820.51 requests per second
+
+Benchmarking NO KEEP-ALIVE GET operations...
+WARNING: keepalive disabled, you probably need 'echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse' for Linux and 'sudo sysctl -w net.inet.tcp.msl=1000' for Mac OS X in order to use a lot of clients/requests
+====== key1 ======
+  1000 requests completed in 0.19 seconds
+  1 parallel clients
+  1 bytes payload
+  keep alive: 0
+  host configuration "save": 900 1 300 10 60 10000
+  host configuration "appendonly": no
+  multi-thread: no
+
+0.10% <= 0.061 milliseconds
+0.80% <= 0.062 milliseconds
+1.60% <= 0.063 milliseconds
+2.00% <= 0.064 milliseconds
+2.10% <= 0.065 milliseconds
+2.50% <= 0.066 milliseconds
+4.10% <= 0.067 milliseconds
+4.70% <= 0.068 milliseconds
+5.00% <= 0.069 milliseconds
+5.20% <= 0.070 milliseconds
+5.30% <= 0.071 milliseconds
+5.40% <= 0.072 milliseconds
+5.60% <= 0.073 milliseconds
+5.90% <= 0.074 milliseconds
+6.50% <= 0.075 milliseconds
+8.20% <= 0.076 milliseconds
+8.80% <= 0.077 milliseconds
+9.40% <= 0.078 milliseconds
+10.50% <= 0.079 milliseconds
+11.10% <= 0.080 milliseconds
+11.20% <= 0.081 milliseconds
+11.70% <= 0.082 milliseconds
+13.00% <= 0.083 milliseconds
+18.50% <= 0.084 milliseconds
+32.90% <= 0.085 milliseconds
+46.10% <= 0.086 milliseconds
+58.50% <= 0.087 milliseconds
+67.70% <= 0.088 milliseconds
+77.80% <= 0.089 milliseconds
+85.60% <= 0.090 milliseconds
+90.00% <= 0.091 milliseconds
+92.30% <= 0.092 milliseconds
+92.80% <= 0.093 milliseconds
+93.50% <= 0.094 milliseconds
+94.10% <= 0.095 milliseconds
+94.20% <= 0.097 milliseconds
+94.30% <= 0.098 milliseconds
+94.70% <= 0.100 milliseconds
+94.90% <= 0.101 milliseconds
+95.10% <= 0.102 milliseconds
+95.40% <= 0.103 milliseconds
+95.90% <= 0.104 milliseconds
+96.00% <= 0.105 milliseconds
+96.20% <= 0.106 milliseconds
+96.30% <= 0.107 milliseconds
+96.50% <= 0.109 milliseconds
+96.70% <= 0.111 milliseconds
+97.00% <= 0.114 milliseconds
+97.30% <= 0.124 milliseconds
+97.40% <= 0.144 milliseconds
+97.50% <= 0.147 milliseconds
+97.60% <= 0.148 milliseconds
+97.70% <= 0.150 milliseconds
+97.80% <= 0.155 milliseconds
+97.90% <= 0.156 milliseconds
+98.00% <= 0.166 milliseconds
+98.10% <= 0.176 milliseconds
+98.20% <= 0.184 milliseconds
+98.30% <= 0.205 milliseconds
+98.40% <= 0.206 milliseconds
+98.50% <= 0.226 milliseconds
+98.60% <= 0.228 milliseconds
+98.70% <= 0.230 milliseconds
+98.80% <= 0.240 milliseconds
+98.90% <= 0.258 milliseconds
+99.00% <= 0.262 milliseconds
+99.10% <= 0.263 milliseconds
+99.20% <= 0.271 milliseconds
+99.40% <= 0.325 milliseconds
+99.50% <= 0.344 milliseconds
+99.60% <= 0.403 milliseconds
+99.70% <= 0.409 milliseconds
+99.80% <= 0.498 milliseconds
+99.90% <= 0.510 milliseconds
+100.00% <= 0.617 milliseconds
+5319.15 requests per second
+
+WARNING: keepalive disabled, you probably need 'echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse' for Linux and 'sudo sysctl -w net.inet.tcp.msl=1000' for Mac OS X in order to use a lot of clients/requests
+====== key2 ======
+  1000 requests completed in 0.16 seconds
+  1 parallel clients
+  1024 bytes payload
+  keep alive: 0
+  host configuration "save": 900 1 300 10 60 10000
+  host configuration "appendonly": no
+  multi-thread: no
+
+0.10% <= 0.052 milliseconds
+0.30% <= 0.053 milliseconds
+0.50% <= 0.054 milliseconds
+1.70% <= 0.055 milliseconds
+2.00% <= 0.057 milliseconds
+2.10% <= 0.058 milliseconds
+2.50% <= 0.059 milliseconds
+2.80% <= 0.060 milliseconds
+3.20% <= 0.061 milliseconds
+4.70% <= 0.062 milliseconds
+6.70% <= 0.063 milliseconds
+9.90% <= 0.064 milliseconds
+11.70% <= 0.065 milliseconds
+12.80% <= 0.066 milliseconds
+13.20% <= 0.067 milliseconds
+13.50% <= 0.068 milliseconds
+14.00% <= 0.069 milliseconds
+14.90% <= 0.070 milliseconds
+16.60% <= 0.071 milliseconds
+17.50% <= 0.072 milliseconds
+18.00% <= 0.073 milliseconds
+18.60% <= 0.074 milliseconds
+18.70% <= 0.075 milliseconds
+18.80% <= 0.076 milliseconds
+18.90% <= 0.077 milliseconds
+19.20% <= 0.078 milliseconds
+19.50% <= 0.079 milliseconds
+19.90% <= 0.080 milliseconds
+20.40% <= 0.081 milliseconds
+21.00% <= 0.082 milliseconds
+21.40% <= 0.083 milliseconds
+22.10% <= 0.084 milliseconds
+25.40% <= 0.085 milliseconds
+35.50% <= 0.086 milliseconds
+44.60% <= 0.087 milliseconds
+53.00% <= 0.088 milliseconds
+67.00% <= 0.089 milliseconds
+77.00% <= 0.090 milliseconds
+81.20% <= 0.091 milliseconds
+83.40% <= 0.092 milliseconds
+85.20% <= 0.093 milliseconds
+85.80% <= 0.094 milliseconds
+86.30% <= 0.095 milliseconds
+87.30% <= 0.096 milliseconds
+88.20% <= 0.097 milliseconds
+89.00% <= 0.098 milliseconds
+90.00% <= 0.099 milliseconds
+91.80% <= 0.100 milliseconds
+93.40% <= 0.101 milliseconds
+94.10% <= 0.102 milliseconds
+94.80% <= 0.103 milliseconds
+95.40% <= 0.105 milliseconds
+95.60% <= 0.106 milliseconds
+96.10% <= 0.107 milliseconds
+96.30% <= 0.110 milliseconds
+96.50% <= 0.111 milliseconds
+96.70% <= 0.112 milliseconds
+97.20% <= 0.113 milliseconds
+97.50% <= 0.114 milliseconds
+97.60% <= 0.124 milliseconds
+97.70% <= 0.130 milliseconds
+97.80% <= 0.150 milliseconds
+97.90% <= 0.157 milliseconds
+98.00% <= 0.165 milliseconds
+98.10% <= 0.173 milliseconds
+98.20% <= 0.176 milliseconds
+98.30% <= 0.199 milliseconds
+98.40% <= 0.201 milliseconds
+98.50% <= 0.215 milliseconds
+98.60% <= 0.242 milliseconds
+98.70% <= 0.253 milliseconds
+98.80% <= 0.259 milliseconds
+98.90% <= 0.267 milliseconds
+99.00% <= 0.269 milliseconds
+99.10% <= 0.282 milliseconds
+99.20% <= 0.313 milliseconds
+99.30% <= 0.317 milliseconds
+99.40% <= 0.321 milliseconds
+99.50% <= 0.327 milliseconds
+99.60% <= 0.334 milliseconds
+99.70% <= 0.350 milliseconds
+99.80% <= 0.387 milliseconds
+99.90% <= 0.399 milliseconds
+100.00% <= 0.496 milliseconds
+6172.84 requests per second
+
+WARNING: keepalive disabled, you probably need 'echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse' for Linux and 'sudo sysctl -w net.inet.tcp.msl=1000' for Mac OS X in order to use a lot of clients/requests
+====== key3 ======
+  1000 requests completed in 0.18 seconds
+  1 parallel clients
+  1048576 bytes payload
+  keep alive: 0
+  host configuration "save": 900 1 300 10 60 10000
+  host configuration "appendonly": no
+  multi-thread: no
+
+0.10% <= 0.048 milliseconds
+0.30% <= 0.049 milliseconds
+0.60% <= 0.050 milliseconds
+1.60% <= 0.051 milliseconds
+5.60% <= 0.052 milliseconds
+10.70% <= 0.053 milliseconds
+13.50% <= 0.054 milliseconds
+15.00% <= 0.055 milliseconds
+15.30% <= 0.056 milliseconds
+15.70% <= 0.057 milliseconds
+15.90% <= 0.058 milliseconds
+16.00% <= 0.060 milliseconds
+16.20% <= 0.061 milliseconds
+16.30% <= 0.062 milliseconds
+16.40% <= 0.063 milliseconds
+16.50% <= 0.064 milliseconds
+17.10% <= 0.065 milliseconds
+18.60% <= 0.066 milliseconds
+23.10% <= 0.067 milliseconds
+32.00% <= 0.068 milliseconds
+45.30% <= 0.069 milliseconds
+56.40% <= 0.070 milliseconds
+62.20% <= 0.071 milliseconds
+66.40% <= 0.072 milliseconds
+67.50% <= 0.073 milliseconds
+68.10% <= 0.074 milliseconds
+68.60% <= 0.075 milliseconds
+69.00% <= 0.076 milliseconds
+69.30% <= 0.077 milliseconds
+69.40% <= 0.078 milliseconds
+69.80% <= 0.079 milliseconds
+70.20% <= 0.080 milliseconds
+72.80% <= 0.081 milliseconds
+75.80% <= 0.082 milliseconds
+79.50% <= 0.083 milliseconds
+84.00% <= 0.084 milliseconds
+89.00% <= 0.085 milliseconds
+89.80% <= 0.086 milliseconds
+90.20% <= 0.087 milliseconds
+90.40% <= 0.088 milliseconds
+90.50% <= 0.089 milliseconds
+90.60% <= 0.092 milliseconds
+91.10% <= 0.093 milliseconds
+92.40% <= 0.094 milliseconds
+93.30% <= 0.095 milliseconds
+94.40% <= 0.096 milliseconds
+95.30% <= 0.097 milliseconds
+95.80% <= 0.098 milliseconds
+96.00% <= 0.099 milliseconds
+96.10% <= 0.100 milliseconds
+96.30% <= 0.103 milliseconds
+96.40% <= 0.104 milliseconds
+96.60% <= 0.105 milliseconds
+97.00% <= 0.107 milliseconds
+97.20% <= 0.109 milliseconds
+97.30% <= 0.110 milliseconds
+97.60% <= 0.111 milliseconds
+98.00% <= 0.112 milliseconds
+98.10% <= 0.113 milliseconds
+98.20% <= 0.114 milliseconds
+98.30% <= 0.117 milliseconds
+98.50% <= 0.127 milliseconds
+98.60% <= 0.209 milliseconds
+98.80% <= 0.225 milliseconds
+98.90% <= 0.229 milliseconds
+99.00% <= 0.264 milliseconds
+99.10% <= 0.297 milliseconds
+99.20% <= 0.321 milliseconds
+99.30% <= 0.332 milliseconds
+99.40% <= 0.335 milliseconds
+99.50% <= 0.359 milliseconds
+99.60% <= 0.360 milliseconds
+99.70% <= 0.363 milliseconds
+99.80% <= 0.410 milliseconds
+99.90% <= 0.454 milliseconds
+100.00% <= 0.547 milliseconds
+5524.86 requests per second
+
+WARNING: keepalive disabled, you probably need 'echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse' for Linux and 'sudo sysctl -w net.inet.tcp.msl=1000' for Mac OS X in order to use a lot of clients/requests
+====== key4 ======
+  1000 requests completed in 0.16 seconds
+  1 parallel clients
+  10485760 bytes payload
+  keep alive: 0
+  host configuration "save": 900 1 300 10 60 10000
+  host configuration "appendonly": no
+  multi-thread: no
+
+0.10% <= 0.053 milliseconds
+0.90% <= 0.054 milliseconds
+2.80% <= 0.055 milliseconds
+5.60% <= 0.056 milliseconds
+11.10% <= 0.057 milliseconds
+15.80% <= 0.058 milliseconds
+19.40% <= 0.059 milliseconds
+21.30% <= 0.060 milliseconds
+22.20% <= 0.061 milliseconds
+22.60% <= 0.063 milliseconds
+23.00% <= 0.064 milliseconds
+23.10% <= 0.065 milliseconds
+23.20% <= 0.066 milliseconds
+23.30% <= 0.079 milliseconds
+23.50% <= 0.081 milliseconds
+24.00% <= 0.082 milliseconds
+24.90% <= 0.083 milliseconds
+25.90% <= 0.084 milliseconds
+28.40% <= 0.085 milliseconds
+39.30% <= 0.086 milliseconds
+47.50% <= 0.087 milliseconds
+55.40% <= 0.088 milliseconds
+74.50% <= 0.089 milliseconds
+84.30% <= 0.090 milliseconds
+86.10% <= 0.091 milliseconds
+86.70% <= 0.092 milliseconds
+88.00% <= 0.093 milliseconds
+88.60% <= 0.094 milliseconds
+89.00% <= 0.095 milliseconds
+89.60% <= 0.096 milliseconds
+90.00% <= 0.097 milliseconds
+90.40% <= 0.098 milliseconds
+91.40% <= 0.099 milliseconds
+92.80% <= 0.100 milliseconds
+94.10% <= 0.101 milliseconds
+95.00% <= 0.102 milliseconds
+95.40% <= 0.103 milliseconds
+95.70% <= 0.104 milliseconds
+95.90% <= 0.105 milliseconds
+96.40% <= 0.107 milliseconds
+96.70% <= 0.108 milliseconds
+96.90% <= 0.110 milliseconds
+97.00% <= 0.116 milliseconds
+97.10% <= 0.117 milliseconds
+97.20% <= 0.118 milliseconds
+97.30% <= 0.129 milliseconds
+97.40% <= 0.137 milliseconds
+97.50% <= 0.142 milliseconds
+97.60% <= 0.143 milliseconds
+98.00% <= 0.145 milliseconds
+98.10% <= 0.146 milliseconds
+98.20% <= 0.151 milliseconds
+98.30% <= 0.152 milliseconds
+98.40% <= 0.157 milliseconds
+98.50% <= 0.166 milliseconds
+98.70% <= 0.169 milliseconds
+98.80% <= 0.171 milliseconds
+98.90% <= 0.259 milliseconds
+99.00% <= 0.261 milliseconds
+99.10% <= 0.263 milliseconds
+99.20% <= 0.302 milliseconds
+99.30% <= 0.309 milliseconds
+99.40% <= 0.334 milliseconds
+99.50% <= 0.351 milliseconds
+99.60% <= 0.389 milliseconds
+99.70% <= 0.404 milliseconds
+99.80% <= 0.479 milliseconds
+99.90% <= 0.529 milliseconds
+100.00% <= 0.539 milliseconds
+6289.31 requests per second
